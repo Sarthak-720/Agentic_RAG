@@ -1,0 +1,38 @@
+# Core orchestration
+langchain==1.3.15
+langchain-core==1.5.4
+langgraph==1.2.11
+
+# LLM provider (chat model only -- embeddings are now local, see below)
+langchain-openai==1.5.0
+
+# Local/offline embeddings (no API cost, no rate limits)
+langchain-huggingface==1.2.2
+sentence-transformers==5.7.0
+
+# Vector store (cloud-native, serverless)
+pinecone==7.3.0
+langchain-pinecone==0.2.13
+
+# Document loading / chunking
+langchain-community==0.4.2
+langchain-text-splitters==1.1.2
+pypdf==5.9.0
+
+# PDF text-extraction fallback cascade (see ingest.py):
+#   pypdf -> pymupdf -> pypdfium2 -> OCR (pytesseract)
+# pypdfium2 in particular uses the SAME engine as Chrome/Edge's built-in
+# PDF viewer, which is what catches PDFs that "look" copyable in a browser
+# but that pypdf/pymupdf fail to extract text from.
+pymupdf==1.28.2
+pypdfium2==5.6.0
+pytesseract==0.3.13
+pillow==12.1.1
+
+# Web search fallback
+langchain-tavily==0.2.18
+
+# App / config
+streamlit==1.61.1
+python-dotenv==1.2.2
+pydantic==2.13.4
